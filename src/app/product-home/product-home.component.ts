@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
   templateUrl: './product-home.component.html',
   styleUrls: ['./product-home.component.css']
 })
+
+
 export class ProductHomeComponent implements OnInit {
   products: any[];
 
@@ -22,15 +24,7 @@ export class ProductHomeComponent implements OnInit {
     this.router.navigate(["/product", row.id]);
   }
 
-  displayedColumns: string[] = [
-    "id",
-    "name",
-    "stock",
-    "price",
-    "active",
-    "date_added",
-    "category_id",
-  ];
+  displayedColumns: string[] = [ "id","name", "stock", "price", "active", "date_added", "category_id",];
 }
 
 

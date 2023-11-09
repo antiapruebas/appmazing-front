@@ -28,5 +28,7 @@ export class ContactHomeComponent implements OnInit {
     "phone",
     "email",
   ];
+
+  
 }
 
