@@ -1,26 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { Product } from '../model/Product';
-import { Category } from '../model/Category';
-import { Router } from '@angular/router';
-import { ProductsService } from '../products.service';
-import { CategoriesService } from '../categories.service';
+import { Component, OnInit } from "@angular/core";
+import { Product } from "../model/Product";
+import { Category } from "../model/Category";
+import { Router } from "@angular/router";
+import { ProductsService } from "../products.service";
+import { CategoriesService } from "../categories.service";
 
 @Component({
-  selector: 'app-product-new',
-  templateUrl: './product-new.component.html',
-  styleUrls: ['./product-new.component.css']
+  selector: "app-product-new",
+  templateUrl: "./product-new.component.html",
+  styleUrls: ["./product-new.component.css"],
 })
 export class ProductNewComponent implements OnInit {
-
-  product =new Product();
+  product = new Product();
   category = new Category();
 
-  categories: Category[] =[]
-  
+  categories: Category[] = [];
 
-  constructor(     private router: Router,
+  constructor(
+    private router: Router,
     private productsService: ProductsService,
-    private categoriesService: CategoriesService) { }
+    private categoriesService: CategoriesService
+  ) {}
 
   ngOnInit(): void {
     this.categoriesService.getCategories().subscribe((data) => {
@@ -29,13 +29,12 @@ export class ProductNewComponent implements OnInit {
   }
 
   newProduct() {
- 
     const product = {
       name: this.product.name,
       stock: this.product.stock,
       price: this.product.price,
-      active: this.product.active =true,
-      date_added: this.product.date_added = new Date(),
+      active: (this.product.active = true),
+      date_added: (this.product.date_added = new Date()),
       category: this.product.category,
     };
 
@@ -43,11 +42,11 @@ export class ProductNewComponent implements OnInit {
     this.navigateToHome();
   }
 
-  cancelInsert(){
-    this.navigateToHome();}
+  cancelInsert() {
+    this.navigateToHome();
+  }
 
-    navigateToHome(){
-      this.router.navigate(['/products']);
-    }
-
+  navigateToHome() {
+    this.router.navigate(["/products"]);
+  }
 }
