@@ -24,7 +24,12 @@ export class ProductHomeComponent implements OnInit {
     this.router.navigate(["/product", row.id]);
   }
 
-  displayedColumns: string[] = [ "id","name", "stock", "price", "active", "date_added", "category_id",];
+  displayedColumns: string[] = [ "id","name", "stock", "price", "active", "date_added", "category_id","actions"];
+
+  
+  editProductDetail(product: any) {
+    this.router.navigate(['/product/edit', product])
+  }
 }
 
 
