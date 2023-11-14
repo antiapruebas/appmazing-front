@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from '../model/Product';
+import { Category } from '../model/Category';
+import { Router } from '@angular/router';
+import { ProductsService } from '../products.service';
+import { CategoriesService } from '../categories.service';
 
 @Component({
   selector: 'app-product-new',
@@ -7,9 +12,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductNewComponent implements OnInit {
 
-  constructor() { }
+  product =new Product();
+  category = new Category();
 
-  ngOnInit() {
+  categories: Category[] =[]
+  
+
+  constructor(     private router: Router,
+    private productsService: ProductsService,
+    private categoriesService: CategoriesService) { }
+
+  ngOnInit(): void {
+    this.categoriesService.getCategories().subscribe((data) => {
+      this.categories = data;
+    });
   }
+
+  newProduct() {
+ 
+    const product = {
+      name: this.product.name,
+      stock: this.product.stock,
+      price: this.product.price,
+      active: this.product.active =true,
+      date_added: this.product.date_added = new Date(),
+      category: this.product.category,
+    };
+
+    this.productsService.newProduct(product);
+    this.navigateToHome();
+  }
+
+  cancelInsert(){
+    this.navigateToHome();}
+
+    navigateToHome(){
+      this.router.navigate(['/products']);
+    }
 
 }
