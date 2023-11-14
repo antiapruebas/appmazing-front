@@ -12,11 +12,12 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { ContactNewComponent } from './contact-new/contact-new.component';
 import { FormsModule } from "@angular/forms";
 import { ProductNewComponent } from './product-new/product-new.component';
+import { ContactEditComponent } from './contact-edit/contact-edit.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, ContactHomeComponent, ContactDetailComponent, ProductHomeComponent, ProductDetailComponent, ContactNewComponent, ProductNewComponent],
+  declarations: [AppComponent, ContactHomeComponent, ContactDetailComponent, ProductHomeComponent, ProductDetailComponent, ContactNewComponent, ProductNewComponent, ContactEditComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

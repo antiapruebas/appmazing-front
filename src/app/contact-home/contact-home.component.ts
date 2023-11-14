@@ -27,7 +27,12 @@ export class ContactHomeComponent implements OnInit {
     "second_surname",
     "phone",
     "email",
+    "actions",
   ];
+
+  editContactDetail(contact: any) {
+    this.router.navigate(['/contact/edit', contact])
+  }
 
   
 }
