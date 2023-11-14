@@ -24,7 +24,7 @@ export class ProductsService {
     return this.http.post(url, body, { headers });
   }
 
-  newProduct(product: Product): void{
+  newProduct(product: any): void{
     const url = 'http://localhost:30030/products/add'
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     const body = product;
