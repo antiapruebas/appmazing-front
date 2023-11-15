@@ -6,5 +6,5 @@ stock: number;
 price: number;
 active: boolean;
 date_added: Date;
-category: Category
+category_id: Category
 }

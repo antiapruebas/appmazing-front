@@ -35,7 +35,7 @@ export class ProductNewComponent implements OnInit {
       price: this.product.price,
       active: (this.product.active = true),
       date_added: (this.product.date_added = new Date()),
-      category: this.product.category,
+      category_id: this.category,
     };
 
     this.productsService.newProduct(product);
