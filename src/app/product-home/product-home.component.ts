@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../products.service';
 import { Router } from '@angular/router';
+import { Product } from '../model/Product';
 
 
 @Component({
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
 
 export class ProductHomeComponent implements OnInit {
   products: any[];
+  product: Product;
 
   constructor(private productsService: ProductsService, private router: Router) { }
 
@@ -30,6 +32,9 @@ export class ProductHomeComponent implements OnInit {
   editProductDetail(product: any) {
     this.router.navigate(['/product/edit', product])
   }
+
+
+ 
 }
 
 

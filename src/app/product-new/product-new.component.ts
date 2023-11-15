@@ -33,10 +33,11 @@ export class ProductNewComponent implements OnInit {
       name: this.product.name,
       stock: this.product.stock,
       price: this.product.price,
-      active: (this.product.active = true),
       date_added: (this.product.date_added = new Date()),
       category_id: this.category,
     };
+
+    this.productActive();
 
     this.productsService.newProduct(product);
     this.navigateToHome();
@@ -49,4 +50,15 @@ export class ProductNewComponent implements OnInit {
   navigateToHome() {
     this.router.navigate(["/products"]);
   }
+
+  
+  productActive() {
+    if (this.product.stock > 0) {
+      this.product.active = true;
+    } else {
+      this.product.active = false;
+    }
+  }
+
+
 }

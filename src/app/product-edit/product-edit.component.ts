@@ -3,6 +3,8 @@ import { ProductsService } from '../products.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoriesService } from '../categories.service';
 import { Category } from '../model/Category';
+import { Product } from '../model/Product';
+
 
 @Component({
   selector: 'app-product-edit',
@@ -10,7 +12,7 @@ import { Category } from '../model/Category';
   styleUrls: ['./product-edit.component.css']
 })
 export class ProductEditComponent implements OnInit {
-  product: any;
+  product: Product;
   category: Category;
   categories:Category[] = [];
 
@@ -27,8 +29,10 @@ export class ProductEditComponent implements OnInit {
   }
 
   updateProduct() {
+    this.productActive();
     this.productService.updateProduct(this.product);
     this.navigateProductDetail();
+  
   }
 
   cancelUpdate() {
@@ -38,5 +42,15 @@ export class ProductEditComponent implements OnInit {
   navigateProductDetail() {
     this.router.navigate(['/product', this.route.snapshot.params['id']])
   }
+
+  productActive() {
+    if (this.product.stock > 0) {
+      this.product.active = true;
+    } else {
+      this.product.active = false;
+    }
+  }
+
+
 
 }

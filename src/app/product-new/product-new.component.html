@@ -4,7 +4,7 @@
     <form (submit)="newProduct()">
       <mat-form-field appearance="outline">
         <mat-label>Nombre</mat-label>
-        <input matInput type="text" name="name" [(ngModel)]="product.name" />
+        <input matInput type="text" name="name" [(ngModel)]="product.name" required/>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
@@ -14,6 +14,7 @@
           type="number"
           name="stock"
           [(ngModel)]="product.stock"
+          required
         />
       </mat-form-field>
 
@@ -24,13 +25,14 @@
           type="number"
           name="price"
           [(ngModel)]="product.price"
+          required
         />
       </mat-form-field>
 
 
       <mat-form-field appearance="outline">
         <mat-label>Categoría</mat-label>
-        <mat-select name="category" [(ngModel)]="category.id">
+        <mat-select name="category" [(ngModel)]="category.id" required>
           <mat-option
             *ngFor="let category of categories"
             [value]="category.id"
