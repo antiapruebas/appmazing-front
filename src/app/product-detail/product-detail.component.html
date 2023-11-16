@@ -18,11 +18,20 @@
     </p>
     <p>
       <mat-icon>date_range</mat-icon> <strong> Fecha inicial:</strong>
-      {{ product.date_added }}
+      {{ product.date_added | date: "dd-MM-yyy"}}
     </p>
     <p>
       <mat-icon>category</mat-icon> <strong> Categoría:</strong>
       {{ product.category_id.name }}
     </p>
   </mat-card-content>
+  <mat-card-actions align = "end">
+    <button mat-raised-button color = "primary" type="button" (click)="editProduct()">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-raised-button type = "button" (click)="closeProduct()">
+      <mat-icon>cancel</mat-icon>
+  </button>
+  </mat-card-actions>
+
 </mat-card>
