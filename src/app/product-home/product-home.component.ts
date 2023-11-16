@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../products.service';
 import { Router } from '@angular/router';
 import { Product } from '../model/Product';
+import { ProductDeleteComponent } from '../product-delete/product-delete.component';
+import { MatDialog } from '@angular/material';
 
 
 @Component({
@@ -15,7 +17,7 @@ export class ProductHomeComponent implements OnInit {
   products: any[];
   product: Product;
 
-  constructor(private productsService: ProductsService, private router: Router) { }
+  constructor(private productsService: ProductsService, private router: Router, public dialog:MatDialog) { }
 
   ngOnInit(): void {
     this.productsService.getProducts().subscribe((data) => {this.products= data});
@@ -33,6 +35,9 @@ export class ProductHomeComponent implements OnInit {
     this.router.navigate(['/product/edit', product])
   }
 
+  openDeleteDialog(productId: number): void{
+    this.dialog.open(ProductDeleteComponent, {data: {productId: productId}});
+  }
 
  
 }

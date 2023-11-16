@@ -15,12 +15,13 @@ import { ProductNewComponent } from './product-new/product-new.component';
 import { ContactEditComponent } from './contact-edit/contact-edit.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ContactDeleteComponent } from './contact-delete/contact-delete.component';
+import { ProductDeleteComponent } from './product-delete/product-delete.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, ContactHomeComponent, ContactDetailComponent, ProductHomeComponent, ProductDetailComponent, ContactNewComponent, ProductNewComponent, ContactEditComponent, ProductEditComponent, ContactDeleteComponent],
-  entryComponents: [ContactDeleteComponent],
+  declarations: [AppComponent, ContactHomeComponent, ContactDetailComponent, ProductHomeComponent, ProductDetailComponent, ContactNewComponent, ProductNewComponent, ContactEditComponent, ProductEditComponent, ContactDeleteComponent, ProductDeleteComponent],
+  entryComponents: [ContactDeleteComponent, ProductDeleteComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
