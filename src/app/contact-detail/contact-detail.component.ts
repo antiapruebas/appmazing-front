@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { ContactsService } from "../contacts.service";
 import { ActivatedRoute, Router } from "@angular/router";
+import { ContactDeleteComponent } from "../contact-delete/contact-delete.component";
+import { MatDialog } from "@angular/material";
 
 @Component({
   selector: "app-contact-detail",
@@ -14,6 +16,7 @@ export class ContactDetailComponent implements OnInit {
     private contactsService: ContactsService,
     private route: ActivatedRoute, 
     private router: Router, 
+    public dialog: MatDialog,
   ) {}
   
   ngOnInit() {
@@ -30,5 +33,9 @@ export class ContactDetailComponent implements OnInit {
 
   closeContact(){
     this.router.navigate(['/contacts']);
+  }
+
+  openDeleteDialog(contactId: number): void{
+    this.dialog.open(ContactDeleteComponent, {data: {contactId: contactId}});
   }
 }

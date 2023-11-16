@@ -4,7 +4,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ContactHomeComponent } from "./contact-home/contact-home.component";
-import { MatButtonModule, MatCardModule, MatIconModule, MatInputModule, MatSelectModule, MatTableModule, MatToolbarModule } from "@angular/material";
+import { MatButtonModule, MatCardModule, MatDialogModule, MatIconModule, MatInputModule, MatSelectModule, MatTableModule, MatToolbarModule } from "@angular/material";
 import {HttpClientModule} from '@angular/common/http';
 import { ContactDetailComponent } from './contact-detail/contact-detail.component';
 import { ProductHomeComponent } from './product-home/product-home.component';
@@ -14,11 +14,13 @@ import { FormsModule } from "@angular/forms";
 import { ProductNewComponent } from './product-new/product-new.component';
 import { ContactEditComponent } from './contact-edit/contact-edit.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
+import { ContactDeleteComponent } from './contact-delete/contact-delete.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, ContactHomeComponent, ContactDetailComponent, ProductHomeComponent, ProductDetailComponent, ContactNewComponent, ProductNewComponent, ContactEditComponent, ProductEditComponent],
+  declarations: [AppComponent, ContactHomeComponent, ContactDetailComponent, ProductHomeComponent, ProductDetailComponent, ContactNewComponent, ProductNewComponent, ContactEditComponent, ProductEditComponent, ContactDeleteComponent],
+  entryComponents: [ContactDeleteComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -31,9 +33,8 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
     MatIconModule,
     FormsModule,
     MatInputModule,
-    MatSelectModule,
-    
-
+    MatSelectModule, 
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
