@@ -96,8 +96,7 @@ export class ChartsComponent implements OnInit {
     return emailExtensions;
   }
 
-  //------------------------------------------------------------------------------------------------
-
+  
   generatePhonePrefixData(contacts: any[]): any {
     let phonePrefixData = [];
     let prefixCounts = {};
