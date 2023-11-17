@@ -13,6 +13,10 @@
   </div>
   <div>
   <p><strong>Lenght of name</strong></p>
+  <ngx-charts-line-chart [view]="[400, 300]" [results]="contactsByFullName" [xAxis]="true" [yAxis]="true"
+[legend]="false" [showXAxisLabel]="true" [showYAxisLabel]="true" xAxisLabel="Full Name Length"
+yAxisLabel="Number of contacts">
+</ngx-charts-line-chart>
   </div>
   </div>
   <div class="chart-row">
