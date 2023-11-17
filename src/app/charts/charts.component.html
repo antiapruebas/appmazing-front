@@ -22,9 +22,15 @@ yAxisLabel="Number of contacts">
   <div class="chart-row">
   <div>
   <p><strong>Extensions</strong></p>
+  <ngx-charts-pie-chart [view]="[400,300]" [results]="emailExtensions"
+  [labels]="true" [doughnut]="true"></ngx-charts-pie-chart>
+
   </div>
   <div>
   <p><strong>Prefix</strong></p>
+  <ngx-charts-bar-horizontal [view]="[400,300]" [results]="phonePrefixData" [xAxis]="true" [yAxis]="true"
+[showXAxisLabel]="true" [showYAxisLabel]="true" xAxisLabel="Number Contacts" yAxisLabel="Phone Prefix">
+</ngx-charts-bar-horizontal>
   </div>
   </div>
   </mat-card-content>
