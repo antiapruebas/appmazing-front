@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ContactsService } from "../contacts.service";
+import { ProductsService } from "../products.service";
 
 @Component({
   selector: "app-charts",
@@ -11,8 +12,13 @@ export class ChartsComponent implements OnInit {
   contactsByFullName = [];
   emailExtensions = [];
   phonePrefixData = [];
+  productsIntialLetter = [];
+  productsbyCategory = []
 
-  constructor(private contactService: ContactsService) {}
+  constructor(
+    private contactService: ContactsService,
+    private productService: ProductsService
+  ) {}
 
   ngOnInit() {
     this.contactService.getContacts().subscribe((data) => {
@@ -21,7 +27,12 @@ export class ChartsComponent implements OnInit {
       this.emailExtensions = this.calculateEmailExtensionsData(data);
       this.phonePrefixData = this.generatePhonePrefixData(data);
     });
-  }
+
+    this.productService.getProducts().subscribe((data) => {
+      this.productsIntialLetter= this.calculateProductsInitialLettersData(data);
+      this.productsbyCategory = this.calculateProductsByCategoryData(data);
+  })
+}
 
   calculateInitialLettersData(contacts: any[]): any {
     return contacts.reduce((result, contact) => {
@@ -96,7 +107,6 @@ export class ChartsComponent implements OnInit {
     return emailExtensions;
   }
 
-  
   generatePhonePrefixData(contacts: any[]): any {
     let phonePrefixData = [];
     let prefixCounts = {};
@@ -117,4 +127,39 @@ export class ChartsComponent implements OnInit {
 
     return phonePrefixData;
   }
+
+  //PRODUCTS 
+
+  calculateProductsInitialLettersData(products: any[]): any {
+    return products.reduce((result, product) => {
+      const initial = product.name.charAt(0).toUpperCase();
+      if (result.find((item) => item.name === initial)) {
+        result.find((item) => item.name === initial).value++;
+      } else {
+        result.push({ name: initial, value: 1 });
+      }
+      return result;
+    }, []);
+  }
+
+
+  
+calculateProductsByCategoryData(products: any[]): any{
+  return products.reduce((result, product) => {
+    const category = product.category_id.name;
+    if (result.find((item) => item.name === category)){
+      result.find((item) => item.name === category).value++;
+    
+    } else {
+      result.push({ name: category, value: 1  });
+    }
+    return result;
+    }, []);
+  }
+
+
 }
+
+
+
+
