@@ -13,7 +13,9 @@ export class ChartsComponent implements OnInit {
   emailExtensions = [];
   phonePrefixData = [];
   productsIntialLetter = [];
-  productsbyCategory = []
+  productsbyCategory = [];
+  stockByCategory = [];
+  productsByPrice = [];
 
   constructor(
     private contactService: ContactsService,
@@ -29,10 +31,13 @@ export class ChartsComponent implements OnInit {
     });
 
     this.productService.getProducts().subscribe((data) => {
-      this.productsIntialLetter= this.calculateProductsInitialLettersData(data);
+      this.productsIntialLetter =
+        this.calculateProductsInitialLettersData(data);
       this.productsbyCategory = this.calculateProductsByCategoryData(data);
-  })
-}
+      this.stockByCategory = this.calculateStockByCategoryData(data);
+      this.productsByPrice = this.calculateProductsByPriceData(data);
+    });
+  }
 
   calculateInitialLettersData(contacts: any[]): any {
     return contacts.reduce((result, contact) => {
@@ -128,7 +133,7 @@ export class ChartsComponent implements OnInit {
     return phonePrefixData;
   }
 
-  //PRODUCTS 
+  //PRODUCTS
 
   calculateProductsInitialLettersData(products: any[]): any {
     return products.reduce((result, product) => {
@@ -142,24 +147,32 @@ export class ChartsComponent implements OnInit {
     }, []);
   }
 
-
-  
-calculateProductsByCategoryData(products: any[]): any{
-  return products.reduce((result, product) => {
-    const category = product.category_id.name;
-    if (result.find((item) => item.name === category)){
-      result.find((item) => item.name === category).value++;
-    
-    } else {
-      result.push({ name: category, value: 1  });
-    }
-    return result;
+  calculateProductsByCategoryData(products: any[]): any {
+    return products.reduce((result, product) => {
+      const category = product.category_id.name;
+      if (result.find((item) => item.name === category)) {
+        result.find((item) => item.name === category).value++;
+      } else {
+        result.push({ name: category, value: 1 });
+      }
+      return result;
     }, []);
   }
 
+  calculateStockByCategoryData(products: any[]): any {
+    return products.reduce((result, product) => {
+      const category = product.category_id.name;
+      const existingCategory = result.find((item) => item.name === category);
 
+      if (existingCategory) {
+        existingCategory.value += product.stock;
+      } else {
+        result.push({ name: category, value: product.stock });
+      }
+
+      return result;
+    }, []);
+  }
+
+  calculateProductsByPriceData(products: any[]): any {}
 }
-
-
-
-

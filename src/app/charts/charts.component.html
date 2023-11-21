@@ -82,20 +82,18 @@
           yAxisLabel="Number of products"
         ></ngx-charts-bar-vertical>
       </div>
-
       <div>
-        <p><strong>Initial name</strong></p>
-        <ngx-charts-bar-vertical
+        <p><strong>Stock by category</strong></p>
+        <ngx-charts-bar-horizontal
           [view]="[400, 300]"
-          [results]="productsIntialLetter"
+          [results]="stockByCategory"
           [xAxis]="true"
           [yAxis]="true"
-          [legend]="false"
           [showXAxisLabel]="true"
           [showYAxisLabel]="true"
-          xAxisLabel="Initial of name"
-          yAxisLabel="Number of products"
-        ></ngx-charts-bar-vertical>
+          xAxisLabel="Stock"
+          yAxisLabel="Category"
+        ></ngx-charts-bar-horizontal>
       </div>
     </div>
 
@@ -111,13 +109,19 @@
       </div>
 
       <div>
-        <p><strong>Products by category</strong></p>
-        <ngx-charts-pie-chart
-          [view]="[400, 300]"
-          [results]="productsbyCategory"
-          [labels]="true"
-          [doughnut]="true"
-        ></ngx-charts-pie-chart>
+        <p><strong>Ranges of prices</strong></p>
+        <ngx-charts-line-chart
+        [view]="[400, 300]"
+        [results]="productsByPrice"
+        [xAxis]="true"
+        [yAxis]="true"
+        [legend]="false"
+        [showXAxisLabel]="true"
+        [showYAxisLabel]="true"
+        xAxisLabel="Prices"
+        yAxisLabel="Number of products"
+      >
+      </ngx-charts-line-chart>
       </div>
     </div>
   </mat-card-content>
