@@ -174,5 +174,42 @@ export class ChartsComponent implements OnInit {
     }, []);
   }
 
-  calculateProductsByPriceData(products: any[]): any {}
+  calculateProductsByPriceData(products: any[]): any {
+    let tempProductsByPrice = [{
+      name: 'Products ', 
+      series: [],
+    }];
+
+    
+
+    products.forEach((product) => {
+      const range = this.getRange(product.price)
+
+      let existingRange = tempProductsByPrice[0].series.find(item => item.name === range);
+      if(existingRange) {
+        existingRange.value++;
+      } else {
+        tempProductsByPrice[0].series.push({name: range, value: 1});
+      }
+    });
+    return tempProductsByPrice.map(entry => {
+      return {
+        ...entry,
+        series: entry.series.sort((a, b) => a.name.localeCompare(b.name))
+      };
+    });
+
+  }
+  
+
+  getRange(price: any): any {
+    if (price<5){
+      return '0-5 €';
+    } else if (price >= 5 && price <=10){
+      return '5-10€'
+    } else {
+      return '+10€'
+  }
+
+  }
 }

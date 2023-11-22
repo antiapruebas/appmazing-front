@@ -70,18 +70,26 @@
     <div class="chart-row">
       <div>
         <p><strong>Initial name</strong></p>
-        <ngx-charts-bar-vertical
-          [view]="[400, 300]"
-          [results]="productsIntialLetter"
-          [xAxis]="true"
-          [yAxis]="true"
-          [legend]="false"
-          [showXAxisLabel]="true"
-          [showYAxisLabel]="true"
-          xAxisLabel="Initial of name"
-          yAxisLabel="Number of products"
-        ></ngx-charts-bar-vertical>
+        <ngx-charts-tree-map
+        [view]="[400, 300]"
+
+        [results]="productsIntialLetter"
+
+      ></ngx-charts-tree-map>
       </div>
+      <div>
+        <p><strong>Products by category</strong></p>
+        <ngx-charts-pie-chart
+          [view]="[400, 300]"
+          [results]="productsbyCategory"
+          [labels]="true"
+          [doughnut]="false"
+        ></ngx-charts-pie-chart>
+      </div>
+      
+    </div>
+
+    <div class="chart-row">
       <div>
         <p><strong>Stock by category</strong></p>
         <ngx-charts-bar-horizontal
@@ -95,18 +103,7 @@
           yAxisLabel="Category"
         ></ngx-charts-bar-horizontal>
       </div>
-    </div>
-
-    <div class="chart-row">
-      <div>
-        <p><strong>Products by category</strong></p>
-        <ngx-charts-pie-chart
-          [view]="[400, 300]"
-          [results]="productsbyCategory"
-          [labels]="true"
-          [doughnut]="true"
-        ></ngx-charts-pie-chart>
-      </div>
+  
 
       <div>
         <p><strong>Ranges of prices</strong></p>
