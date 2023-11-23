@@ -10,6 +10,8 @@ import { ContactEditComponent } from './contact-edit/contact-edit.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ChartsComponent } from './charts/charts.component';
 import { CategoryHomeComponent } from './category-home/category-home.component';
+import { CategoryDetailComponent } from './category-detail/category-detail.component';
+import { CategoryNewComponent } from './category-new/category-new.component';
 
 
 
@@ -24,6 +26,8 @@ const routes: Routes = [
   {path: 'product/edit/:id', component: ProductEditComponent},
   {path: 'product/:id', component: ProductDetailComponent},
   {path: 'categories', component: CategoryHomeComponent},
+  {path: 'category/new', component: CategoryNewComponent},
+  {path: 'category/:id', component: CategoryDetailComponent},
 ];
 
 @NgModule({

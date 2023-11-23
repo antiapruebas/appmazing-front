@@ -18,23 +18,20 @@ export class CategoryHomeComponent implements OnInit {
   }
 
   openDetailForm(row: any) {
-    // this.router.navigate(["/category", row.id]);
-    console.log("works")
+  this.router.navigate(["/category", row.id]);
+
   }
 
   editCategoryDetail(contact: any) {
     // this.router.navigate(['/category/edit', category]);
     console.log("works");
   }
-
-
   
   displayedColumns: string[] = [
     'id',
     'name',
     'actions',
   ]
-
 
 
 }

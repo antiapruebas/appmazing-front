@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Category details</title>
+</head>
+<body>
+  <mat-card class="card">
+    <mat-card-title>Category details</mat-card-title>
+    <mat-card-content class="card-content">
+      <p>
+        <mat-icon>category</mat-icon> <strong>Category:</strong> {{category.name}}
+      </p>
+      <p>
+  
+    </mat-card-content>
+  
+    <mat-card-actions align = "end">
+      <button mat-raised-button color = "primary" type="button" (click)="editCategory()">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-raised-button type = "button" (click)="closeCategory()">
+        <mat-icon>cancel</mat-icon>
+      </button>
+  
+    </mat-card-actions>
+  
+  </mat-card>
+  
+</body>
+</html>
