@@ -1,9 +1,9 @@
 <mat-card class="card">
-  <mat-card-title>Añadir Producto</mat-card-title>
+  <mat-card-title>New product</mat-card-title>
   <mat-card-content class="card-content">
     <form (submit)="newProduct()">
       <mat-form-field appearance="outline">
-        <mat-label>Nombre</mat-label>
+        <mat-label>Name</mat-label>
         <input matInput type="text" name="name" [(ngModel)]="product.name" required/>
       </mat-form-field>
 
@@ -19,7 +19,7 @@
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>Precio</mat-label>
+        <mat-label>Price</mat-label>
         <input
           matInput
           type="number"
@@ -31,7 +31,7 @@
 
 
       <mat-form-field appearance="outline">
-        <mat-label>Categoría</mat-label>
+        <mat-label>Category</mat-label>
         <mat-select name="category" [(ngModel)]="category.id" required>
           <mat-option
             *ngFor="let category of categories"

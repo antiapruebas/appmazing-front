@@ -1,27 +1,27 @@
 <mat-card class="card">
-  <mat-card-title>Detalle del producto</mat-card-title>
+  <mat-card-title>Product detail</mat-card-title>
   <mat-card-content class="card-content">
     <p>
-      <mat-icon>local_mall</mat-icon> <strong> Nombre:</strong>
+      <mat-icon>local_mall</mat-icon> <strong> Name:</strong>
       {{ product.name }}
     </p>
     <p>
       <mat-icon>list_alt</mat-icon> <strong> Stock:</strong> {{ product.stock }}
     </p>
     <p>
-      <mat-icon>euro_symbol</mat-icon> <strong> Precio:</strong>
+      <mat-icon>euro_symbol</mat-icon> <strong> Price:</strong>
       {{ product.price }} €
     </p>
     <p [style.color]="product.active ? 'green' : 'red'">
       <mat-icon>{{ product.active ? "check_circle" : "close" }}</mat-icon>
-      <strong> {{ product.active ? "Activo" : "No disponible" }}</strong>
+      <strong> {{ product.active ? "Active" : "No available" }}</strong>
     </p>
     <p>
-      <mat-icon>date_range</mat-icon> <strong> Fecha inicial:</strong>
+      <mat-icon>date_range</mat-icon> <strong> Date added:</strong>
       {{ product.date_added | date: "dd-MM-yyy"}}
     </p>
     <p>
-      <mat-icon>category</mat-icon> <strong> Categoría:</strong>
+      <mat-icon>category</mat-icon> <strong> Category:</strong>
       {{ product.category_id.name }}
     </p>
   </mat-card-content>
