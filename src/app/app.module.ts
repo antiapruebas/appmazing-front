@@ -27,6 +27,7 @@ import { ContactDeleteComponent } from "./contact-delete/contact-delete.componen
 import { ProductDeleteComponent } from "./product-delete/product-delete.component";
 import { ChartsComponent } from "./charts/charts.component";
 import { NgxChartsModule } from "@swimlane/ngx-charts";
+import { CategoryHomeComponent } from './category-home/category-home.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { NgxChartsModule } from "@swimlane/ngx-charts";
     ContactDeleteComponent,
     ProductDeleteComponent,
     ChartsComponent,
+    CategoryHomeComponent,
   ],
   entryComponents: [ContactDeleteComponent, ProductDeleteComponent],
   imports: [
