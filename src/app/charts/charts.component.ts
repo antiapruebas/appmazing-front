@@ -179,15 +179,14 @@ export class ChartsComponent implements OnInit {
       name: 'Products ', 
       series: [],
     }];
-
     
 
     products.forEach((product) => {
       const range = this.getRange(product.price)
 
-      let existingRange = tempProductsByPrice[0].series.find(item => item.name === range);
-      if(existingRange) {
-        existingRange.value++;
+      let foundRange = tempProductsByPrice[0].series.find(item => item.name === range);
+      if(foundRange) {
+        foundRange.value++;
       } else {
         tempProductsByPrice[0].series.push({name: range, value: 1});
       }
@@ -201,7 +200,6 @@ export class ChartsComponent implements OnInit {
 
   }
   
-
   getRange(price: any): any {
     if (price<5){
       return '0-5 €';
