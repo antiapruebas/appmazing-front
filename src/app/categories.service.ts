@@ -28,4 +28,11 @@ newCategory(category: any): void {
   const body = category
   this.http.post(url, body, { headers }).subscribe();
 }
+
+updateCategory(category: any):void {
+  const url = 'http://localhost:30030/category/update';
+  const headers = new HttpHeaders().set('Content-type', 'application/json');
+  const body = category;
+  this.http.put(url, body, {headers}).subscribe();
+}
 }

@@ -22,8 +22,8 @@ export class CategoryHomeComponent implements OnInit {
 
   }
 
-  editCategoryDetail(contact: any) {
-    // this.router.navigate(['/category/edit', category]);
+  editCategoryDetail(category: any) {
+  this.router.navigate(['/category/edit', category]);
     console.log("works");
   }
   

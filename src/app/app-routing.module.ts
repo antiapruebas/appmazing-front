@@ -12,6 +12,7 @@ import { ChartsComponent } from './charts/charts.component';
 import { CategoryHomeComponent } from './category-home/category-home.component';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
 import { CategoryNewComponent } from './category-new/category-new.component';
+import { CategoryEditComponent } from './category-edit/category-edit.component';
 
 
 
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path: 'product/:id', component: ProductDetailComponent},
   {path: 'categories', component: CategoryHomeComponent},
   {path: 'category/new', component: CategoryNewComponent},
+  {path: 'category/edit/:id', component: CategoryEditComponent},
   {path: 'category/:id', component: CategoryDetailComponent},
 ];
 
